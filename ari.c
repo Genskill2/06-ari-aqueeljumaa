@@ -31,6 +31,3 @@ string ari (string paragraph) {
 	}
 }
 
-count no_of_characters(string paragraph) {
-	int characters = 0;
-	for (int i = 0; i < strlen(paragraph
