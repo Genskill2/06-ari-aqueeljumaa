@@ -33,4 +33,39 @@ string ari (string paragraph) {
 
 count no_of_characters(string paragraph) {
 	int characters = 0;
-	for (int i = 0; i < strlen(paragraph
+	for (int i = 0; i < strlen(paragraph) ; i++) {
+		if(isalnum(paragraph[i])) {
+			characters++;
+		}
+	}
+	return characters;
+}
+
+count no_of_words(string paragraph) {
+	int words = 0;
+	for (int i = 0; i < strlen(paragraph) ; i++) {
+		if(paragraph[i] == ' ') {
+			words++;
+		}
+	}
+	return words;
+}
+
+count no_of_sentences(string paragraph) {
+	int sentences = 0;
+	for (int i = 0; i < strlen(paragraph) ; i++) {
+		if((paragraph[i]) == '.' || paragraph[i] == '?' || paragraph[i] == '!') {
+			sentences++;
+		}
+	}
+	return sentences;
+}
+
+int score_formula(int characters, int words , int sentences) {
+	float ret = 4.71 * (float)characters/words + 0.5 * (float)words/sentences - 21.43;
+	
+	if (ret - (int)ret != 0) {                       
+		ret = (int)ret + 1;
+	}
+	return ret;
+}
